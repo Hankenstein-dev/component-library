@@ -4,8 +4,8 @@ export const MODELS = [
   { label: "Claude Haiku 4.5", value: "claude-haiku-4-5-20251001", provider: "anthropic" },
   { label: "Gemini 2.5 Flash", value: "gemini-2.5-flash", provider: "google" },
   { label: "Gemini 2.5 Pro", value: "gemini-2.5-pro", provider: "google" },
-  { label: "GPT-4.1", value: "gpt-4.1", provider: "openai" },
-  { label: "GPT-4.1 mini", value: "gpt-4.1-mini", provider: "openai" },
+  { label: "GPT-5.4", value: "gpt-5.4", provider: "openai" },
+  { label: "GPT-5.4 mini", value: "gpt-5.4-mini", provider: "openai" },
 ] as const;
 
 export const DEFAULT_SYSTEM_PROMPT = `You are an immigration law assistant for Roots Global, an immigration law firm operating in Portugal and Spain.
