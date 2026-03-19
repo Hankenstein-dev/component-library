@@ -21,7 +21,7 @@ export function TestConsole({ counts, onAddComponent }: TestConsoleProps) {
     milestone: true,
     knowledge: true,
   });
-  const [model, setModel] = useState("claude-sonnet-4-20250514");
+  const [model, setModel] = useState("claude-sonnet-4-5-20250929");
   const [systemPrompt, setSystemPrompt] = useState(DEFAULT_SYSTEM_PROMPT);
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState<{
@@ -115,7 +115,7 @@ export function TestConsole({ counts, onAddComponent }: TestConsoleProps) {
   }, 0);
 
   return (
-    <div className="h-full flex flex-col p-4 bg-muted gap-3">
+    <div className="h-full w-full flex flex-col p-4 bg-muted gap-3">
       {/* Top controls: toggles + model selector */}
       <div className="flex items-center gap-3 flex-wrap">
         <div className="flex items-center gap-2 flex-wrap flex-1">

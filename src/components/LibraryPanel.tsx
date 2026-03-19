@@ -96,7 +96,7 @@ export function LibraryPanel({ externalActiveType, externalIsCreating, onStateCh
   const selectedId = selectedEntry?.id ?? null;
 
   return (
-    <div className="h-full overflow-y-auto p-4 bg-background flex flex-col gap-3">
+    <div className="h-full w-full overflow-y-auto p-4 bg-background flex flex-col gap-3">
       <Tabs value={activeType} onValueChange={handleTabChange}>
         <TabsList className="grid w-full grid-cols-4">
           {COMPONENT_TYPES.map((type) => (
@@ -121,7 +121,7 @@ export function LibraryPanel({ externalActiveType, externalIsCreating, onStateCh
                   className="shadow-sm"
                 />
                 <Button onClick={handleAddClick} className="shadow-sm">
-                  + Add {type.label.slice(0, -1).toLowerCase()}
+                  + Add {type.type}
                 </Button>
                 {loading ? (
                   <p className="text-sm text-muted-foreground text-center py-8">Loading...</p>

@@ -1,5 +1,6 @@
 export const MODELS = [
-  { label: "Claude Sonnet 4", value: "claude-sonnet-4-20250514", provider: "anthropic" },
+  { label: "Claude Opus 4.6", value: "claude-opus-4-6", provider: "anthropic" },
+  { label: "Claude Sonnet 4.5", value: "claude-sonnet-4-5-20250929", provider: "anthropic" },
   { label: "Claude Haiku 4.5", value: "claude-haiku-4-5-20251001", provider: "anthropic" },
   { label: "Gemini 2.5 Flash", value: "gemini-2.5-flash", provider: "google" },
   { label: "Gemini 2.5 Pro", value: "gemini-2.5-pro", provider: "google" },

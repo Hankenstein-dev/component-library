@@ -20,6 +20,9 @@ dist-ssr
 # Windows Zone Identifier
 *:Zone.Identifier
 
+# Supabase
+supabase/.temp
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
