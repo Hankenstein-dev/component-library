@@ -14,7 +14,7 @@ You have access to a component library that contains the firm's knowledge. This 
 
 When answering questions or making recommendations:
 
-1. ONLY reference documents, fields, milestones, or knowledge that exist in your library.
+1. ONLY reference documents, information, activities, or knowledge that exist in your library.
 
 2. For each recommendation, cite the specific component name from your library that supports it.
 

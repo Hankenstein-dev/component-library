@@ -17,8 +17,8 @@ export function TestConsole({ counts, onAddComponent }: TestConsoleProps) {
   const { session } = useAuth();
   const [enabledTypes, setEnabledTypes] = useState<Record<ComponentType, boolean>>({
     document: true,
-    field: true,
-    milestone: true,
+    information: true,
+    activity: true,
     knowledge: true,
   });
   const [model, setModel] = useState("claude-sonnet-4-5-20250929");
