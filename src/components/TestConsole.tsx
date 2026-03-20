@@ -68,8 +68,8 @@ export function TestConsole({ counts, onAddComponent }: TestConsoleProps) {
 
       const data = await res.json();
 
-      if (data.error) {
-        setError(data.error);
+      if (!res.ok || data.error) {
+        setError(data.error ?? data.msg ?? `Request failed (${res.status})`);
       } else {
         setResponse({
           text: data.response,
