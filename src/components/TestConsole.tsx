@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
+import { useSettings } from "@/hooks/useSettings";
 import { COMPONENT_TYPES, type ComponentType } from "@/lib/types";
 import { MODELS, DEFAULT_SYSTEM_PROMPT } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
@@ -22,8 +23,16 @@ export function TestConsole({ counts, onAddComponent }: TestConsoleProps) {
     knowledge: true,
   });
   const [model, setModel] = useState("claude-sonnet-4-5-20250929");
+  const { value: savedPrompt, loading: settingsLoading, save: savePrompt } = useSettings("system_prompt");
   const [systemPrompt, setSystemPrompt] = useState(DEFAULT_SYSTEM_PROMPT);
+  const [saving, setSaving] = useState(false);
   const [prompt, setPrompt] = useState("");
+
+  useEffect(() => {
+    if (!settingsLoading && savedPrompt !== null) {
+      setSystemPrompt(savedPrompt);
+    }
+  }, [settingsLoading, savedPrompt]);
   const [response, setResponse] = useState<{
     text: string;
     model: string;
@@ -163,14 +172,33 @@ export function TestConsole({ counts, onAddComponent }: TestConsoleProps) {
             onChange={(e) => setSystemPrompt(e.target.value)}
             className="font-mono text-xs min-h-[200px] resize-y bg-background border-input"
           />
-          {systemPrompt !== DEFAULT_SYSTEM_PROMPT && (
-            <button
-              className="text-xs text-muted-foreground hover:text-foreground text-left"
-              onClick={() => setSystemPrompt(DEFAULT_SYSTEM_PROMPT)}
+          <div className="flex items-center gap-3">
+            <Button
+              variant="outline"
+              size="sm"
+              disabled={saving || systemPrompt === savedPrompt}
+              onClick={async () => {
+                setSaving(true);
+                await savePrompt(systemPrompt);
+                setSaving(false);
+              }}
             >
-              Reset to default
-            </button>
-          )}
+              {saving ? "Saving..." : "Save"}
+            </Button>
+            {systemPrompt !== DEFAULT_SYSTEM_PROMPT && (
+              <button
+                className="text-xs text-muted-foreground hover:text-foreground"
+                onClick={async () => {
+                  setSystemPrompt(DEFAULT_SYSTEM_PROMPT);
+                  setSaving(true);
+                  await savePrompt(DEFAULT_SYSTEM_PROMPT);
+                  setSaving(false);
+                }}
+              >
+                Reset to default
+              </button>
+            )}
+          </div>
           <p className="text-xs text-muted-foreground">
             The component library is appended automatically based on your toggles above.
           </p>
