@@ -16,17 +16,15 @@ export default function App() {
   // Get counts from each table
   const documents = useComponents("documents");
   const information = useComponents("information");
-  const activities = useComponents("activities");
   const knowledge = useComponents("knowledge");
 
   const counts = useMemo(
     () => ({
       document: documents.count,
       information: information.count,
-      activity: activities.count,
       knowledge: knowledge.count,
     }),
-    [documents.count, information.count, activities.count, knowledge.count]
+    [documents.count, information.count, knowledge.count]
   );
 
   if (loading) return null;

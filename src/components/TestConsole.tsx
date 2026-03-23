@@ -19,7 +19,6 @@ export function TestConsole({ counts, onAddComponent }: TestConsoleProps) {
   const [enabledTypes, setEnabledTypes] = useState<Record<ComponentType, boolean>>({
     document: true,
     information: true,
-    activity: true,
     knowledge: true,
   });
   const [model, setModel] = useState("claude-sonnet-4-5-20250929");
@@ -108,8 +107,6 @@ export function TestConsole({ counts, onAddComponent }: TestConsoleProps) {
           return "bg-blue-50 text-blue-700 border border-blue-200 dark:bg-blue-950 dark:text-blue-300 dark:border-blue-800";
         case "green":
           return "bg-green-50 text-green-700 border border-green-200 dark:bg-green-950 dark:text-green-300 dark:border-green-800";
-        case "amber":
-          return "bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-800";
         case "purple":
           return "bg-purple-50 text-purple-700 border border-purple-200 dark:bg-purple-950 dark:text-purple-300 dark:border-purple-800";
         default:

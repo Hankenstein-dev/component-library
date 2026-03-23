@@ -14,14 +14,12 @@ const supabase = createClient(supabaseUrl, supabaseServiceKey);
 const TABLE_MAP: Record<string, string> = {
   document: "documents",
   information: "information",
-  activity: "activities",
   knowledge: "knowledge",
 };
 
 const SECTION_LABELS: Record<string, string> = {
   document: "DOCUMENTS",
   information: "INFORMATION",
-  activity: "ACTIVITIES",
   knowledge: "KNOWLEDGE",
 };
 

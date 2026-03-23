@@ -82,8 +82,6 @@ export function LibraryPanel({ externalActiveType, externalIsCreating, onStateCh
         return "bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300";
       case "green":
         return "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300";
-      case "amber":
-        return "bg-amber-50 text-amber-700 dark:bg-amber-950 dark:text-amber-300";
       case "purple":
         return "bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-300";
       default:
@@ -98,7 +96,7 @@ export function LibraryPanel({ externalActiveType, externalIsCreating, onStateCh
   return (
     <div className="h-full w-full overflow-y-auto p-4 bg-background flex flex-col gap-3">
       <Tabs value={activeType} onValueChange={handleTabChange}>
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-3">
           {COMPONENT_TYPES.map((type) => (
             <TabsTrigger key={type.type} value={type.type} className="flex items-center gap-2">
               <span>{type.label}</span>
@@ -137,6 +135,7 @@ export function LibraryPanel({ externalActiveType, externalIsCreating, onStateCh
             {showDetail && (
               <ComponentDetail
                 entry={selectedEntry}
+                componentType={activeType}
                 onBack={handleBack}
                 onSave={createEntry}
                 onUpdate={updateEntry}

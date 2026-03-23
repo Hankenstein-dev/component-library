@@ -1,7 +1,6 @@
 export const COMPONENT_TYPES = [
   { type: "document", table: "documents", label: "Documents", color: "blue" },
   { type: "information", table: "information", label: "Information", color: "green" },
-  { type: "activity", table: "activities", label: "Activities", color: "amber" },
   { type: "knowledge", table: "knowledge", label: "Knowledge", color: "purple" },
 ] as const;
 
